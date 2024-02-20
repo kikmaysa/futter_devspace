@@ -4,23 +4,26 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
       home: Scaffold(
         backgroundColor: const Color(0xff331b6e),
+        appBar: AppBar(
+          title: const Text(
+            'Cometnity',
+          ),
+        ),
         body: Container(
-          margin: const EdgeInsets.fromLTRB(14, 50, 14, 0),
+          margin: const EdgeInsets.fromLTRB(14, 0, 14, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -96,26 +99,6 @@ class _MyAppState extends State<MyApp> {
                   )),
             ],
           ),
-        ),
-        bottomNavigationBar: NavigationBar(
-          indicatorColor: const Color.fromARGB(255, 191, 166, 255),
-          destinations: const <Widget>[
-            NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              label: 'Home',
-            ),
-            NavigationDestination(
-              icon: Badge(
-                label: Text('2'),
-                child: Icon(Icons.notifications_active_outlined),
-              ),
-              label: 'Notifications',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person_2_outlined),
-              label: 'Profile',
-            ),
-          ],
         ),
       ),
     );
